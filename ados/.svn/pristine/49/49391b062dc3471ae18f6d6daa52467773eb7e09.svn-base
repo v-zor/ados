@@ -1,0 +1,6 @@
+This is a PIC 12C5XX (12C508,12C509) assembler.
+
+The code.ooo file contains the output machine code. Each 4 bits (2^8) of the 12bit wide instructions is encoded as a hex number in this file. Thus you can
+use perl for further hacking it (run 'perldoc -q convert')
+
+For more information see the PIC microprocessor datasheet e.g. opcodes and oprands.

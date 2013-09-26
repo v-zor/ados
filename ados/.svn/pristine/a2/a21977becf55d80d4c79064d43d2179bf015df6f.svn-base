@@ -1,0 +1,3 @@
+. architecture dependant files (e.g. processor bootstrap code, binary formats)
+. config directory needs write access as pre-compile kernel configuration
+files go there.

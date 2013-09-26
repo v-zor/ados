@@ -1,0 +1,135 @@
+%{
+/*
+ tpicasm PIC 12C50X compiler-scanner-parser-assembler
+
+ Copyright (C) Johan Ceuppens 2011
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include <math.h>
+#include "y.tab.h"
+extern int yylval;
+%}
+
+DIGIT	[0-9]+
+ID	[a-z]+[a-z0-9]*
+ID2	[A-Z]+[a-z0-9]*
+
+%%
+"||"			{ printf("OR"); return OR; }
+"&&"			{ printf("AND"); return AND; }
+"!"			{ printf("NOT"); return NOT; }
+"{"			{ printf("LEFTBRACKET"); return LEFTBRACKET; }
+"}"			{ printf("RIGHTBRACKET"); return RIGHTBRACKET; }
+"("			{ printf("LEFTPARENS"); return LEFTPARENS; }
+")"			{ printf("RIGHTPARENS"); return RIGHTPARENS; }
+[DIGIT]  			{ printf ("digit=%s\n", yytext); return DIGIT; }
+","			{ printf("COMMA"); return COMMA; }
+";"			{ printf("SEMICOLON"); return SEMICOLON; }
+"+"			{printf("PLUS"); return PLUS; }
+"-"			{printf("MINUS"); return MINUS; }
+"*"			{printf("MULTIPLY"); return MULTIPLY; }
+"/"			{printf("DIVIDE"); return DIVIDE; }
+"="			{printf("EQUALS"); return EQUALS; }
+
+"/*"			{ printf("COMMENTOPEN"); return COMMENTOPEN; }
+"*/"			{ printf("COMMENTCLOSE"); return COMMENTCLOSE; }
+
+"int"			{ printf ("INTTYPE"); return INTTYPE; }
+"char"			{ printf ("CHARTYPE"); return CHARTYPE; }
+"IF"			{ printf ("IF"); return IF; }
+"IF-AND"		{ printf ("IF-AND"); return IFAND; }
+"ELSE"			{ printf ("ELSE"); return ELSE; }
+"if"			{ printf ("IF"); return IF; }
+"if-and"		{ printf ("IF-AND"); return IFAND; }
+"else"			{ printf ("ELSE"); return ELSE; }
+
+"when"			{ printf ("WHEN"); return WHEN; }
+
+"do"			{ printf ("DO"); return DO; }
+"while"			{ printf ("WHILE"); return WHILE; }
+
+"ADDWF"			{ printf("ADDWF"); return ADDWF; }
+"addwf"			{ printf("ADDWF"); return ADDWF; }
+"ANDWF"			{ printf("ANDWF"); return ANDWF; }
+"andwf"			{ printf("ANDWF"); return ANDWF; }
+"CLRF"			{ printf("CLRF"); return CLRF; }
+"clrf"			{ printf("CLRF"); return CLRF; }
+"CLRW"			{ printf("CLRW"); return CLRW; }
+"clrw"			{ printf("CLRW"); return CLRW; }
+"COMF"			{ printf("COMF"); return COMF; }
+"comf"			{ printf("COMF"); return COMF; }
+"DECF"			{ printf("DECF"); return DECF; }
+"decf"			{ printf("DECF"); return DECF; }
+"DECFSZ"		{ printf("DECFSZ"); return DECFSZ; }
+"decfsz"		{ printf("DECFSZ"); return DECFSZ; }
+"INCF"			{ printf("INCF"); return INCF; }
+"incf"			{ printf("INCF"); return INCF; }
+"INCFSZ"		{ printf("INCFSZ"); return INCFSZ; }
+"incfsz"		{ printf("INCFSZ"); return INCFSZ; }
+"IORWF"			{ printf("IORWF"); return IORWF; }
+"iorwf"			{ printf("IORWF"); return IORWF; }
+"MOVF"			{ printf("MOVF"); return MOVF; }
+"movf"			{ printf("MOVF"); return MOVF; }
+"MOVWF"			{ printf("MOVWF"); return MOVWF; }
+"movwf"			{ printf("MOVWF"); return MOVWF; }
+"NOP"			{ printf("NOP"); return NOP; }
+"nop"			{ printf("NOP"); return NOP; }
+"RLF"			{ printf("RLF"); return RLF; }
+"rlf"			{ printf("RLF"); return RLF; }
+"RRF"			{ printf("RBF"); return RRF; }
+"rrf"			{ printf("RBF"); return RRF; }
+"SUBWF"			{ printf("SUBWF"); return SUBWF; }
+"subwf"			{ printf("SUBWF"); return SUBWF; }
+"SWAPF"			{ printf("SWAPF"); return SWAPF; }
+"swapf"			{ printf("SWAPF"); return SWAPF; }
+"XORWF"			{ printf("XORWF"); return XORWF; }
+"xorwf"			{ printf("XORWF"); return XORWF; }
+"BCF"			{ printf("BCF"); return BCF; }
+"bcf"			{ printf("BCF"); return BCF; }
+"BSF"			{ printf("BSF"); return BSF; }
+"bsf"			{ printf("BSF"); return BSF; }
+"BTFSC"			{ printf("BTFSC"); return BTFSC; }
+"btfsc"			{ printf("BTFSC"); return BTFSC; }
+"BTFSS"			{ printf("BTFSS"); return BTFSS; }
+"btfss"			{ printf("BTFSS"); return BTFSS; }
+"ANDLW"			{ printf("ANDLW"); return ANDLW; }
+"andlw"			{ printf("ANDLW"); return ANDLW; }
+"CALL"			{ printf("CALL"); return CALL; }
+"call"			{ printf("CALL"); return CALL; }
+"CLRWDTR"		{ printf("CLRWDT"); return CLRWDT; }
+"clrwdtr"		{ printf("CLRWDT"); return CLRWDT; }
+"GOTO"			{ printf("GOTO"); return GOTO; }
+"goto"			{ printf("GOTO"); return GOTO; }
+"IORLW"			{ printf("IORLW"); return IORLW; }
+"iorlw"			{ printf("IORLW"); return IORLW; }
+"MOVLW"			{ printf("MOVLW"); return MOVLW; }
+"movlw"			{ printf("MOVLW"); return MOVLW; }
+"OPTION"		{ printf("OPTION"); return OPTION; }
+"option"		{ printf("OPTION"); return OPTION; }
+"RETLW"			{ printf("RETLW"); return RETLW; }
+"retlw"			{ printf("RETLW"); return RETLW; }
+"SLEEP"			{ printf("SLEEP"); return SLEEP; }
+"sleep"			{ printf("SLEEP"); return SLEEP; }
+"TRIS"			{ printf("TRIS"); return TRIS; }
+"tris"			{ printf("TRIS"); return TRIS; }
+"XORLW"			{ printf("XORLW"); return XORLW; }
+"xorlw"			{ printf("XORLW"); return XORLW; }
+
+[ID|ID2]  			{ printf ("id=%s\n", yytext); return NAME; }
+
+[ \t|\n]+		{ printf ("newline\n"); }
+
+.		{ printf( " Unrecognised char: %s\n", yytext); }
+%%

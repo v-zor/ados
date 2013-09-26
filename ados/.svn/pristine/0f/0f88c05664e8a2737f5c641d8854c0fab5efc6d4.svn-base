@@ -1,0 +1,66 @@
+. W is the status register, f is file offset (5bits long) and d (3bits or sometimes 1 bit long.)
+
+. Byte-Oriented file register operations: d = 0 for destination W d = 1 for desitination f, f = 5-bit register address.
+
+ (Read the operandi (e.g. f,d) from left to right in the ASCII figures here below
+  11------6-5-4-----0
+  OPCODE--d---f------
+
+ OPCODES AND OPERANDI:
+
+ ADDWF f,d : Add W and f
+ ANDWF f,d : And W with f
+ CLRF f    : Clear f
+ CLRW      : Clear W
+ COMF f,d  : Complement f
+ DECF f,d  : Decrement f
+ DECFSZ f,d: Decrement f, Skip if 0
+ INCF f,d  : Increment f
+ INCFSZ f,d: Increment f, Skip if 0
+ IORWF f,d : Inclusive OR W with f
+ MOVF  f,d : Move f
+ MOVWF f   : Move W to f
+ NOP       : No operation
+ RLF   f,d : Rotate left f through carry
+ RRF   f,d : Rotate right through carry
+ SUBWF f,d : Substract W from f
+ SWAPF f,d : Swap f
+ XORWF f,d : Exclusive OR with f
+ 
+. Bit-Oriented file register operations: b = 3bits long, f file register 5bits long.
+  11------8-7--5-4-----0
+  OPCODE--b------f------
+
+  OPCODES AND OPERANDI:
+  
+  BCF f,b  : Bit clear f
+  BSF f,b  : Bit set f
+  BTFSC f,b: Bit test f , Skip if clear
+  BTFSS f,b: Bit testf f, Skip if set
+ 
+. Literal and control operations (except GOTO)
+k = 8bit immideate value.
+  11------8-7----------0
+  OPCODE----k-----------
+
+  OPCODES AND OPERANDI:
+
+  ANDLW  k : And literal W
+  CALL   k : Call subroutine
+  CLRWDT k : Clear Watchdog Timer
+  IORLW  k : Inclusive OR literal with W
+  MOVELW k : Move literal to W
+  OPTION   : Load OPTION register
+  RETLW  k : Return, place literal in W
+  SLEEP    : Go into standby mode
+  TRIS   f : Load TRIS register
+  XORLW  k : Exclusive OR literal to W
+
+. Literal and control operations - GOTO instruction: 
+k = 9-bit immediate value
+  11------9-8----------0
+  OPCODE----k-----------
+
+  OPCODES AND OPERANDI:
+
+  GOTO k   : Unconditional branch

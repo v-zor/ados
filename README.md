@@ -1,4 +1,4 @@
 ados
 ====
 
-Ada virtual machine on a derived Linux based OS
+Ada and Smalltalk virtual machine on a derived Linux based OS

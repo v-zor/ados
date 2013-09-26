@@ -1,0 +1,2 @@
+- run 'build.sh' or select a makefile (make -f Makefile).
+- build.sh runs a test.s through a pipe towards the assembler.

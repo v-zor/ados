@@ -1,0 +1,14 @@
+LIBS = -lfl
+OBJECTS = lex.yy.o\
+	y.tab.o\
+	symtab.o\
+
+all: tpicasm
+
+clean:
+	rm *.o tpicasm lex.yy.* y.tab.*
+
+
+tpicasm: $(OBJECTS)
+	gcc -c $<
+	gcc -o tpicasm *.o $(LIBS)

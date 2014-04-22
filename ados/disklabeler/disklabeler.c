@@ -19,23 +19,6 @@
 
 void write_bootsector55AA()
 {
-/***
-	__asm
-	{
-		org 0x7C00
-		jmp 0x0000:start
-		start:
-	}
-***/
-	asm("org 0x7C00");
-	asm("jmp 0x0000:start");
-	asm("start:");
-
-/* otherwise 
-ORG 0
-jmp 0x07C0:start
-start:
-*/
 }
 
 #if 0

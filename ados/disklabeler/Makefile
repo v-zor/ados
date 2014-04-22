@@ -1,22 +1,22 @@
-AS=as
+ASM=nasm
 CC=gcc
 LIBS = 
 OBJECTS = disklabeler.o \
 	mbrcode.o
 
-SOBJECTS = 
+SOBJECTS = label.o 
 
-all: $(OBJECTS)
+all: $(SOBJECTS) $(OBJECTS)
 
 clean:
-	rm *.o disklabeler
+	rm *.o label disklabeler
 
 
 ###disklabeler: $(OBJECTS)
 ###	$(CC) -o disklabeler *.o $(LIBS)
 
-##.s.o:
-##	$(AS) -c $<
+.s.o:
+	$(ASM) $<
 
 .c.o:
 	$(CC) -masm=intel -Wall -ansi -m64 -c $<

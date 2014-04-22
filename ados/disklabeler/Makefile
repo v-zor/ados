@@ -1,7 +1,9 @@
 AS=as
 CC=gcc
 LIBS = 
-OBJECTS = disklabeler.o
+OBJECTS = disklabeler.o \
+	mbrcode.o
+
 SOBJECTS = 
 
 all: $(OBJECTS)

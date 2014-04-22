@@ -15,8 +15,9 @@
  along with this program. If not, see <http://www.gnu.org/licenses/>,
 */
 
-#ifndef _VUBX_ELF_H_
-#define _VUBX_ELF_H_
+#ifndef _VUBX_DISKLABELER_H_
+#define _VUBX_DISKLABELER_H_
 
+void write_bootsector55AA();
 
 #endif

@@ -15,31 +15,8 @@
  along with this program. If not, see <http://www.gnu.org/licenses/>,
 */
 
-#include "disklabeler.h"
+#ifndef _VUBX_MBRCODE_H_
+#define _VUBX_MBRCODE_H_
 
-void write_bootsector55AA()
-{
-/***
-	__asm
-	{
-		org 0x7C00
-		jmp 0x0000:start
-		start:
-	}
-***/
-	asm("org 0x7C00");
-	asm("jmp 0x0000:start");
-	asm("start:");
 
-/* otherwise 
-ORG 0
-jmp 0x07C0:start
-start:
-*/
-}
-
-#if 0
-int main()
-{
-}
 #endif

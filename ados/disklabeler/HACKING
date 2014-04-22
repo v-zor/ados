@@ -1,0 +1,2 @@
+. set start and end cyls and heads,
+	start sector and num of sectors in disklabeler mbrcode.c

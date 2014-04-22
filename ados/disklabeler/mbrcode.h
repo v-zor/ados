@@ -18,5 +18,23 @@
 #ifndef _VUBX_MBRCODE_H_
 #define _VUBX_MBRCODE_H_
 
+/* int should be 32 bits wide */
+struct mbr_table_entry {
+	short int bootflag, starthead, descriptor, endhead;
+	int startcyl, endcyl;
+	long int startsector, nsectors;
+
+}; 
+
+void write_floppy_mbr(void);
+void write_hd_mbr(void);
+int getbootflag(void);
+int getheads(void);
+int getendheads(void);
+int getcyls(void);
+int getendcyls(void);
+int gettype(void);
+int getstartsector(void);
+int getnsectors(void);
 
 #endif

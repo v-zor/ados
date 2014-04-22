@@ -1,0 +1,2 @@
+This disklabel program runs in AMD x86_64 bit mode, it can be run from
+within the kernel installation.

@@ -4,17 +4,17 @@ LIBS =
 OBJECTS = disklabeler.o
 SOBJECTS = 
 
-all: disklabeler 
+all: $(OBJECTS)
 
 clean:
 	rm *.o disklabeler
 
 
-disklabeler: $(OBJECTS)
-	$(CC) -o disklabeler *.o $(LIBS)
+###disklabeler: $(OBJECTS)
+###	$(CC) -o disklabeler *.o $(LIBS)
 
-.s.o:
-	$(AS) -c $<
+##.s.o:
+##	$(AS) -c $<
 
 .c.o:
-	$(CC) -c $<
+	$(CC) -masm=intel -Wall -ansi -m64 -c $<

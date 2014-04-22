@@ -18,23 +18,36 @@
 #ifndef _VUBX_MBRCODE_H_
 #define _VUBX_MBRCODE_H_
 
-/* int should be 32 bits wide */
+/*
+On a hard drive, the so-called Master Boot Record (MBR) holds executable code at offset 0x0000 - 0x01bd, followed by table entries for the four primary partitions, using sixteen bytes per entry (0x01be - 0x01fd), and the two-byte signature (0x01fe - 0x01ff).
+The layout of the table entries is as follows:
+Offset	 Size (bytes)	 Description
+0x00	 1	 Boot Indicator (0x80=bootable, 0x00=not bootable)
+0x01	 1	 Starting Head Number
+0x02	 2	 Starting Cylinder Number (10 bits) and Sector (6 bits)
+0x04	 1	 Descriptor (Type of partition/filesystem)
+0x05	 1	 Ending Head Number
+0x06	 2	 Ending Cylinder and Sector numbers
+0x08	 4	 Starting Sector (relative to beginning of disk)
+0x0C	 4	 Number of Sectors in partition
+*/
 struct mbr_table_entry {
-	short int bootflag, starthead, descriptor, endhead;
-	int startcyl, endcyl;
-	long int startsector, nsectors;
+	uint16 bootflag, starthead, descriptor, endhead;
+	uint32 startcyl, endcyl;
+	uint64 startsector, nsectors;
 
 }; 
 
 void write_floppy_mbr(void);
 void write_hd_mbr(void);
-int getbootflag(void);
-int getheads(void);
-int getendheads(void);
-int getcyls(void);
-int getendcyls(void);
-int gettype(void);
-int getstartsector(void);
-int getnsectors(void);
+
+uint16 getbootflag(void);
+uint16 getheads(void);
+uint16 getendheads(void);
+uint32 getcyls(void);
+uint32 getendcyls(void);
+uint16 gettype(void);
+uint64 getstartsector(void);
+uint64 getnsectors(void);
 
 #endif

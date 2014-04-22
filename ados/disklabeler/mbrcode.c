@@ -30,19 +30,6 @@ On a floppy disk, all 512 bytes of the boot record may contain executable code.
 void write_hd_mbr(void)
 {
 
-/*
-On a hard drive, the so-called Master Boot Record (MBR) holds executable code at offset 0x0000 - 0x01bd, followed by table entries for the four primary partitions, using sixteen bytes per entry (0x01be - 0x01fd), and the two-byte signature (0x01fe - 0x01ff).
-The layout of the table entries is as follows:
-Offset	 Size (bytes)	 Description
-0x00	 1	 Boot Indicator (0x80=bootable, 0x00=not bootable)
-0x01	 1	 Starting Head Number
-0x02	 2	 Starting Cylinder Number (10 bits) and Sector (6 bits)
-0x04	 1	 Descriptor (Type of partition/filesystem)
-0x05	 1	 Ending Head Number
-0x06	 2	 Ending Cylinder and Sector numbers
-0x08	 4	 Starting Sector (relative to beginning of disk)
-0x0C	 4	 Number of Sectors in partition
-*/
 /***
 	fprintf(stdout, "%x", 0x80);
 	fprintf(stdout, "%x", getheads());
@@ -70,45 +57,45 @@ Offset	 Size (bytes)	 Description
 }
 
 /* boot flag 0x80 bootable, 0x00 unbootable */
-int getbootflag(void)
+uint16 getbootflag(void)
 {
 	return 0x08;
 }
 /* get starting head number */
-int getheads(void)
+uint16 getheads(void)
 {
 	return 0;
 }
 /* get ending head number */
-int getendheads(void)
+uint16 getendheads(void)
 {
 	return 1048576; 
 }
 /* get starting cylinder number */
-int getcyls(void)
+uint32 getcyls(void)
 {
 	return 0;
 }
 /* get starting cylinder number */
-int getendcyls(void)
+uint32 getendcyls(void)
 {
 	return 1048576; 
 }
 
 /* get filesystem type */
-int gettype(void)
+uint16 gettype(void)
 {
 	return 0xff;
 }
 
 /* get start sector */
-int getstartsector(void)
+uint64 getstartsector(void)
 {
 	return 0;
 }
 
 /* get number of sectors */
-int getnsectors(void)
+uint64 getnsectors(void)
 {
 	return 1024;
 }

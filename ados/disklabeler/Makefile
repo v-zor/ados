@@ -17,7 +17,7 @@ clean:
 
 
 disklabeler: 
-	$(LD) *.o -o disklabeler.bin --oformat=binary -Ttext=0x10000 
+	$(LD) *.o -o disklabeler.bin --oformat=binary -Ttext=0x00000 
 
 .s.o:
 	$(ASM) $<

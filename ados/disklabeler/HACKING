@@ -1,2 +1,5 @@
+. change the -Ttext=0x00000 option to where disklabeler.bin is in the kernel
+	you can also use it as a userland program while it may need other things
+
 . set start and end cyls and heads,
 	start sector and num of sectors in disklabeler mbrcode.c

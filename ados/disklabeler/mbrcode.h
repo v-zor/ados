@@ -18,6 +18,8 @@
 #ifndef _VUBX_MBRCODE_H_
 #define _VUBX_MBRCODE_H_
 
+#include "../kernel/types.h"
+
 /*
 On a hard drive, the so-called Master Boot Record (MBR) holds executable code at offset 0x0000 - 0x01bd, followed by table entries for the four primary partitions, using sixteen bytes per entry (0x01be - 0x01fd), and the two-byte signature (0x01fe - 0x01ff).
 The layout of the table entries is as follows:

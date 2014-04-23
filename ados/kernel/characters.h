@@ -25,6 +25,9 @@ extern uint32 VIDEO_MODE_CHARH;
 /* a char wide and high */
 extern uint32 CHARW;
 extern uint32 CHARH;
+/* a char wide and high for blitting */
+extern uint32 CHARW16;
+extern uint32 CHARH16;
 
 void print_character(char c);
 

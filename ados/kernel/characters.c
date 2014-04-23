@@ -19,51 +19,45 @@
 uint32 VIDEO_MODE_CHARW = 80;
 uint32 VIDEO_MODE_CHARH = 24;
 
-uint32 CHARW = 80;
-uint32 CHARH = 24;
+uint32 CHARW = 32; 
+uint32 CHARH = 32;
+
+uint32 CHARW16 = 256; 
+uint32 CHARH16 = 256;
 
 
 static char *char_a[] = {
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
-	"          ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
+	"                 ",
 };
 
 static void putchararray(char *carray[])
 {
 	int i,j;
-	while (i < CHARH) {
-		while (j < CHARW) {
+	while (i < CHARH16 ) {
+		while (j < CHARW16) {
 			if (*carray[j + i*CHARW] != ' ') {
 				/* TODO FIX putchar on ScreenPtr */		
 				/* putpixel in color */
 			}
-			j++;	
+			j <<= 1;	
 		}
-		i++;
-		j = 0;
+		i <<= 1;
+		j <<= 0;	
 	}
 } 
 

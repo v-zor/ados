@@ -17,6 +17,7 @@ OBJECTS = \
 	screen.o \
 	task.o \
 	taskmgr.o \
+	characters.o \
 	usrlnd.o
 
 ### C++	fb.o \

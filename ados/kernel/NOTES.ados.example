@@ -1,0 +1,24 @@
+Booting the kernel
+
+In a few moments, you will see your kernel in action.
+Building a bootable cdrom image
+You can easily create a bootable cdrom image containing the GRUB bootloader and your kernel using the program grub-mkrescue. You may need to install the GRUB utility programs and the program xorriso (version 0.5.6 or higher). First you should create a file called grub.cfg containing the contents:
+menuentry "myos" {
+	multiboot /boot/myos.bin
+}
+Note that the braces must be placed as shown here. You can now create a bootable image of your operating system by typing these commands:
+mkdir -p isodir
+mkdir -p isodir/boot
+cp myos.bin isodir/boot/myos.bin
+mkdir -p isodir/boot/grub
+cp grub.cfg isodir/boot/grub/grub.cfg
+grub-mkrescue -o myos.iso isodir
+Congratulations! You have now created a file called myos.iso that contains your Hello World operating system. If you don't have the program grub-mkrescue installed, now is a good time to install GRUB. It should already be installed on Linux systems. Windows users will likely want to use a Cygwin variant if no native grub-mkrescue program is available.
+Testing your operating system (QEMU)
+Virtual Machines are very useful for development operating systems, as they allow you to quickly test your code and have access to the source code during the execution. Otherwise, you would be in for an endless cycle of reboots that would only annoy you. They start very quickly, especially combined with small operating systems such as ours.
+In this tutorial, we will be using QEMU. You can also use other virtual machines if you please. Simply adding the ISO to the CD drive of an empty virtual machine will do the trick.
+Install qemu from your repositories, and then use the following command to start your new operating system.
+qemu-system-i386 -cdrom myos.iso
+This should start a new virtual machine containing only your ISO as a cdrom. If all goes well, you will be met with a menu provided by the bootloader. Simply select myos and if all goes well, you should see the happy words "Hello, Kernel World!" followed by some mysterious character.
+Additionally, qemu supports booting multiboot kernels directly without bootable medium:
+qemu-system-i386 -kernel myos.bin

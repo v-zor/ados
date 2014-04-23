@@ -1,4 +1,5 @@
 ASM=nasm
+AS=as
 
 # NOTE pass -m64 to gcc command for 64 bit binary
 
@@ -30,6 +31,9 @@ clean:
 
 kernel: 
 	$(LD) *.o -o kernel.bin --oformat=binary -Ttext=0x100000 
+	$(AS) boot.s -o boot.o
+	$(CC) -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+	$(CC) -T linker.ld -o ados.example.bin -ffreestanding -O2 -nostdlib boot.o kernel.o ###-lgcc
 
 .s.o:
 	$(ASM) $<

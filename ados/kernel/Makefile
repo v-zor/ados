@@ -32,10 +32,10 @@ clean:
 
 
 kernel: 
-	$(LD) *.o -o kernel.bin --oformat=binary -Ttext=0x000000 
+	$(LD) *.o -o kernel.bin --oformat=binary ### -Ttext=0x000000 
 	$(AS) boot.s -o boot.o
 	$(CC) -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
-	$(CC) -T linker.ld -o kernel.example.bin -ffreestanding -O2 -nostdlib boot.o kernel.o -lgcc
+	$(CC) -T linker.ld -o kernel.example.bin -ffreestanding -O2 -nostdlib boot.o kernel.o ### -lgcc
 
 .s.o:
 	$(ASM) $<

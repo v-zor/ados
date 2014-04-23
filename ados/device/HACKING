@@ -1,0 +1,4 @@
+. use static on .c
+. for a decent version of kmalloc (BSD), take a look at 
+https://github.com/v-zor/libc.rogue/
+.

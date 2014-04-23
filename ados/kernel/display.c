@@ -18,5 +18,5 @@
 #include "display.h"
 
 /* FIX width */
-uint32 *ScreenPtr = (uint32*)0xB8000;
+uint32 *SCREENPTR = (uint32*)0xB8000;
 uint32 MAX_SCREEN = 0xFFFFF; /* FIX */

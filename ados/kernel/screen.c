@@ -19,11 +19,11 @@
 
 int blit(char *p)
 {
-	/* uint32 *ScreenPtrTemp = ScreenPtr; */
-	while ((*ScreenPtr++ = *p++) && *ScreenPtr < MAX_SCREEN)
+	/* uint32 *SCREENPTRTemp = SCREENPTR; */
+	while ((*SCREENPTR++ = *p++) && *SCREENPTR < MAX_SCREEN)
 		;
 
-	if (*ScreenPtr != MAX_SCREEN) return PRGERR; else return 0;
+	if (*SCREENPTR != MAX_SCREEN) return PRGERR; else return 0;
 
 }
 

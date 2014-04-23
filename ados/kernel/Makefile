@@ -13,6 +13,7 @@ OBJECTS = \
 	malloc.o \
 	memcpy.o \
 	memset.o \
+	print.o \
 	display.o \
 	screen.o \
 	task.o \

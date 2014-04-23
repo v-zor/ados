@@ -43,4 +43,11 @@ static char *char_a[] = {
 	"          ",
 	"          ",
 	"          ",
-}; 
+};
+
+void print_character(char c)
+{
+	if (c == 'a') {
+		/* TODO FIX putchar on ScreenPtr */		
+	}
+}			 

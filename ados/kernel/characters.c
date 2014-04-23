@@ -16,6 +16,12 @@
 */
 
 #include "characters.h"
+uint32 VIDEO_MODE_CHARW = 80;
+uint32 VIDEO_MODE_CHARH = 24;
+
+uint32 CHARW = 80;
+uint32 CHARH = 24;
+
 
 static char *char_a[] = {
 	"          ",
@@ -45,9 +51,25 @@ static char *char_a[] = {
 	"          ",
 };
 
+static void putchararray(char *carray[])
+{
+	int i,j;
+	while (i < CHARH) {
+		while (j < CHARW) {
+			if (*carray[j + i*CHARW] != ' ') {
+				/* TODO FIX putchar on ScreenPtr */		
+				/* putpixel in color */
+			}
+			j++;	
+		}
+		i++;
+		j = 0;
+	}
+} 
+
 void print_character(char c)
 {
 	if (c == 'a') {
-		/* TODO FIX putchar on ScreenPtr */		
+		putchararray(char_a);	
 	}
 }			 

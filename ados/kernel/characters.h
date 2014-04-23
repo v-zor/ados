@@ -17,5 +17,15 @@
 
 #ifndef _VUBX_CHARACTERS_H_
 #define _VUBX_CHARACTERS_H_
+#include "types.h"
+
+/* number of char wide and high */
+extern uint32 VIDEO_MODE_CHARW;
+extern uint32 VIDEO_MODE_CHARH;
+/* a char wide and high */
+extern uint32 CHARW;
+extern uint32 CHARH;
+
+void print_character(char c);
 
 #endif

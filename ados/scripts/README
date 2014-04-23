@@ -1,0 +1,6 @@
+List of commands:
+=================
+
+mkgrubiso.sh:
+-------------
+. make a ISO image which boots the ados kernel

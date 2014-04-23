@@ -17,9 +17,9 @@
 
 #include "error.h"
 #include "types.h"
-#include "elflnd.h"
+#include "usrlnd.h"
 
-static int parse_elf32(uint32 oper, uint32 opnd1, uint32 opnd2)
+int parse_elf32(uint32 oper, uint32 opnd1, uint32 opnd2)
 {
 	switch(oper) {
 		case 0x00000000:{
@@ -34,7 +34,7 @@ static int parse_elf32(uint32 oper, uint32 opnd1, uint32 opnd2)
 	return 0;	
 }
 
-static int parse_elf64(uint64 op)
+int parse_elf64(uint64 op)
 {
 	return PRGERR;	
 }

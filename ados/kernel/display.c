@@ -15,12 +15,7 @@
  along with this program. If not, see <http://www.gnu.org/licenses/>,
 */
 
-#ifndef _VUBX_TASKMGR_H_
-#define _VUBX_TASKMGR_H_
+#include "display.h"
 
-#include "task.h"
-
-typedef struct taskmgr { Task *queue; int current; int max; } TaskMgr;
-
-enum { PRGERR, };
-#endif
+uint32 *ScreenPtr = 0x00000000;
+uint32 MAX_SCREEN = 0x10000000;

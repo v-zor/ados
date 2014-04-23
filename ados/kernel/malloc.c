@@ -15,17 +15,19 @@
 */
 
 #include "types.h" 
+#include "values.h" 
 #include "globals_memory.h"
 
 void *
-kmalloc(void *dst, void *src, size_t n)
+kmalloc(size_t n)
 {
 	if (n != 0) {
-		unsigned char *s = src;
-		unsigned char *d = dst;
+		uint8 *d;
 		do
-			*d++ = (unsigned char)(*s++);
+			*d++ = 0;
 		while (--n != 0);
+		return (d);
+	} else {
+		return NIL;
 	}
-	return (dst);
 }

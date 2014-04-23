@@ -20,6 +20,6 @@
 
 #include "types.h"
 
-static uint32 *ScreenPtr 0x00000000;
-
+extern uint32 *ScreenPtr;
+extern uint32 MAX_SCREEN;
 #endif

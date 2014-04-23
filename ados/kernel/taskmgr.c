@@ -17,12 +17,14 @@
 
 #include "taskmgr.h"
 
-static int task_add(TaskMgr *tmgr, Task *t)
+int task_add(TaskMgr *tmgr, Task *t)
 {
 
 	if (tmgr->current >= tmgr->max)
 		return PRGERR;
 
-	tmgr->queue + tmgr->current = t;
+	tmgr->queue += tmgr->current; 
+	tmgr->queue = t;
+	tmgr->queue -= tmgr->current; 
 	return 0;
 }

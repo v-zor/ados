@@ -17,12 +17,13 @@
 #include "display.h"
 #include "error.h"
 
-static int blit(char *p)
+int blit(char *p)
 {
-	uint32 ScreenPtrTemp = ScreenPtr;
-	while (*ScreenPtr++ = *p++ && ScreenPtr < MAX_SCREEN)
+	/* uint32 *ScreenPtrTemp = ScreenPtr; */
+	while ((*ScreenPtr++ = *p++) && *ScreenPtr < MAX_SCREEN)
 		;
 
-	if (ScreenPtr != MAX_SCREEN) return PRGERR; else return 0;
+	if (*ScreenPtr != MAX_SCREEN) return PRGERR; else return 0;
+
 }
 

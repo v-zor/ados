@@ -47,15 +47,18 @@ static char *char_a[] = {
 
 static void putchararray(char *carray[])
 {
-	int i,j;
+	int i,j, h;
 	while (i < CHARH16 ) {
+		int w;
 		while (j < CHARW16) {
-			if (*carray[j + i*CHARW] != ' ') {
+			if (*carray[w + h*CHARW] != ' ') {
 				/* TODO FIX putchar on ScreenPtr */		
 				/* putpixel in color */
 			}
+			w++;
 			j <<= 1;	
 		}
+		h++;
 		i <<= 1;
 		j <<= 0;	
 	}

@@ -14,16 +14,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
+#include "types.h"
 
 void *
 kmemcpy(void *dst, void *src, size_t n)
 {
 	if (n != 0) {
-		unsigned char *s = src;
-		unsigned char *d = dst;
+		uint8 *s = src;
+		uint8 *d = dst;
 		do
-			*d++ = (unsigned char)(*s++);
+			*d++ = *s++;
 		while (--n != 0);
 	}
 	return (dst);

@@ -14,16 +14,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
+#include "types.h"
 
 void *
 kmemset(void *dst, int c, size_t n)
 {
 	if (n != 0) {
-		unsigned char *d = dst;
+		uint8 *d = dst;
 
 		do
-			*d++ = (unsigned char)c;
+			*d++ = c;
 		while (--n != 0);
 	}
 	return (dst);

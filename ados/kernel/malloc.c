@@ -14,7 +14,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
+#include "types.h" 
+#include "globals_memory.h"
 
 void *
 kmalloc(void *dst, void *src, size_t n)

@@ -1,2 +1,2 @@
-. Herein reside the kernels which output e.g. ELF code for execution on VUBIX's
+. Herein reside the kernels which output e.g. ELF code for execution on VUBX's
 virtual machines or supported binary (or text as in form) formats.

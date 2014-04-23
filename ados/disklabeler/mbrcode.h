@@ -40,6 +40,11 @@ struct mbr_table_entry {
 
 }; 
 
+/*
+On a floppy disk, all 512 bytes of the boot record may contain executable code.
+ (Well, actually 510 bytes due to the two-byte signature.)
+*/
+
 void write_floppy_mbr(void);
 void write_hd_mbr(void);
 

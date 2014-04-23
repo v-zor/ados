@@ -1,5 +1,5 @@
 /*
- Copyright (C) Johan Ceuppens 2013
+ Copyright (C) Johan Ceuppens 2013-2014
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -15,14 +15,7 @@
  along with this program. If not, see <http://www.gnu.org/licenses/>,
 */
 
-#ifndef _VUBX_TYPES_H_
-#define _VUBX_TYPES_H_
+#include "globals_memory.h"
 
-typedef unsigned long int uint64;
-typedef unsigned int uint32;
-typedef unsigned short int uint16;
-typedef char uint8;
+uint32 *global_pool;
 
-typedef uint32 size_t;
-
-#endif

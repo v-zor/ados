@@ -13,25 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include "types.h" 
-#include "values.h" 
-#include "globals_memory.h"
-#include "characters.h"
-#include "print.h"
+#ifndef _VUBX_PRINT_H_
+#define _VUBX_PRINT_H_
 
 const char * 
-kprint(const char *s)
-{
-	char *res;
-	int n;	
-	if (s != NIL) {
-		do {
-			*res++ = *s;	
-			print_character(*s++);
-		} while (n++ && (*res++ = *s) != '\0');
-		return res-n;	
-	} else {
-		return NIL;
-	}
-}
+kprint(const char *s);
+
+#endif

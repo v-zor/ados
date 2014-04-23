@@ -15,7 +15,7 @@ all: $(SOBJECTS) $(OBJECTS) disklabeler
 clean:
 	rm *.o label disklabeler disklabeler.bin
 
-
+### -Ttext=X is the offset you want to load this binary from (i.e. disklabeler)
 disklabeler: 
 	$(LD) *.o -o disklabeler.bin --oformat=binary -Ttext=0x000000 
 

@@ -18,6 +18,7 @@
 #ifndef _VUBX_DISKLABELER_H_
 #define _VUBX_DISKLABELER_H_
 
-void write_bootsector55AA();
+void write_bootsector();
+void load_bootsector();
 
 #endif

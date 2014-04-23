@@ -17,8 +17,30 @@
 
 #include "disklabeler.h"
 
-void write_bootsector55AA()
+static void write_bootsector55AA()
 {
+	/* write 0x55 @ byte 511 and write 0xAA in byte 512 */	
+		
+}
+
+static void load_bootsector55AA(void)
+{
+	/* load to 0x7c00:0x0000 or 0x0000:0x7c00 */
+	/* you can jump to label.s code in this binary and write it together
+		with the mbrcode.c with a boot record into RAM 
+	*/	
+}
+
+void write_bootsector(void)
+{
+	write_bootsector55AA();
+
+}		
+
+void load_bootsector(void)
+{
+	load_bootsector55AA();
+
 }
 
 #if 0

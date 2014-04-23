@@ -25,17 +25,6 @@ void write_floppy_mbr(void)
 void write_hd_mbr(void)
 {
 
-/***
-	fprintf(stdout, "%x", 0x80);
-	fprintf(stdout, "%x", getheads());
-	fprintf(stdout, "%x", getcyls());
-	fprintf(stdout, "%x", gettypes());
-	fprintf(stdout, "%x", endheads());
-	fprintf(stdout, "%x", endcyls());
-	fprintf(stdout, "%x", getsector());
-	fprintf(stdout, "%x", getsectorn());
-***/
-
 	struct mbr_table_entry *mte;
 	mte = kmalloc(4096);
 
